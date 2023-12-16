@@ -1,21 +1,24 @@
-    <!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokémon Data</title>
+    <title>Document</title>
 </head>
 <body>
     <table border="1">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Imagen</th>
+                <th>EL CLUB DE LA PELEA POKEMON</th>
             </tr>
+            
         </thead>
-        <tbody id="datos"></tbody>
+        <tbody id="datos">
+            
+        </tbody>
+    
     </table>
+    
 
     <script>
         async function getNombrePokemon(iteraciones) {
@@ -31,20 +34,19 @@
                 const id = i;
                 const nombre = json.forms[0].name;
                 const imagen = json.sprites.front_default;
+                const imagen2 = json.sprites.front_default;
 
-                // Crear una nueva fila en la tabla
+            
                 const nuevaFila = document.createElement("tr");
 
-                // Llenar la fila con celdas
-                nuevaFila.innerHTML = `<td>${id}</td><td>${nombre}</td><td><img src="${imagen}" alt="${nombre}" width="50"></td>`;
+            
+                nuevaFila.innerHTML = `<td>img src="${imagen}</td><td><img src="${imagen2}`;
 
-                // Agregar la fila a la tabla
-                //document.getElementById("datos").appendChild(nuevaFila);
-                document.getElementById("datos").innerHTML += `<td>${id}</td><td>${nombre}</td><td><img src="${imagen}" alt="${nombre}" width="100"></td>`
+                document.getElementById("datos").innerHTML += `<th>Mi pokemon</th><img src="${imagen}"></td><button onclick="()">Figth</button><th>CPU Pokemon</th><img src="${imagen2}" >`;
             }
         }
 
-        getNombrePokemon(100)
+        getNombrePokemon(1)
             .then(() => console.log("Datos cargados correctamente"))
             .catch(error => console.log(error.message));
     </script>
