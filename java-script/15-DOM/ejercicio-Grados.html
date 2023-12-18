@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio de suma</title>
+</head>
+<body>
+
+    <div>
+        <label for="">Grados Centigrados:</label>
+        <input id="numero1" type="number">
+        
+        <button onclick="sumar()" id="btnSumar">Calcular</button>
+        <hr>
+        <label for="">Grados Farenheit</label>
+        <input id="resultado" type="text" readonly="">
+    </div>
+    
+    
+
+    <script>
+        function sumar() {
+            let num_1 = document.getElementById('numero1').value;
+            let multi = 9/5;
+            let sumar = 32;
+            
+            if(num_1 == '') {
+                num_1 = 0;
+            }
+        
+
+            let suma = (Number(num_1) * multi) + sumar;
+
+            document.getElementById("resultado").value = suma;
+        }
+
+    </script>
+</body>
+</html>
