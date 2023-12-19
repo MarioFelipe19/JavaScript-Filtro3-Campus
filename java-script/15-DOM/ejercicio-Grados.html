@@ -3,36 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio de suma</title>
+    <title>Convertir de centigrados a Fahrenheit y viceversa</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0 auto;
+            box-sizing: border-box;
+            color: black;
+            
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+            border: 2px solid;
+            padding: 20px;
+            background-color: lightslategray;
+        }
+        button {
+            padding: 5px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
     <div>
-        <label for="">Grados Centigrados:</label>
+        <label for="">Grados centígrados:</label>
         <input id="numero1" type="number">
-        
-        <button onclick="sumar()" id="btnSumar">Calcular</button>
-        <hr>
-        <label for="">Grados Farenheit</label>
-        <input id="resultado" type="text" readonly="">
+        <br>
+        <label for="">Grados fahrenheit:</label>
+        <input id="numero2" type="number">
+        <br>
+        <button onclick="convCentAFahre()" id="btnSumar">Convertir a Fahrenheit</button>
+        <button onclick="convFahreACent()" id="btnSumar">Convertir a Centigrados</button> 
     </div>
     
     
 
     <script>
-        function sumar() {
-            let num_1 = document.getElementById('numero1').value;
-            let multi = 9/5;
-            let sumar = 32;
+
+        function convCentAFahre() {
+            let centigrados = document.getElementById('numero1').value;
             
-            if(num_1 == '') {
-                num_1 = 0;
-            }
-        
+            let fahrenheit = ( centigrados * 9 / 5 ) + 32
 
-            let suma = (Number(num_1) * multi) + sumar;
+            document.getElementById("numero2").value = fahrenheit;
+        }
 
-            document.getElementById("resultado").value = suma;
+        function convFahreACent() {
+            let fahrenheit = document.getElementById('numero2').value;
+            let centigrados = (fahrenheit * 5 / 9 ) - (32 * 5 / 9)
+
+            document.getElementById("numero1").value = Number(centigrados.toFixed(2));
         }
 
     </script>

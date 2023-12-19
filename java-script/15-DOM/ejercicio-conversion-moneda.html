@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertir de centigrados a Fahrenheit y viceversa</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0 auto;
+            box-sizing: border-box;
+            color: black;
+            
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+            border: 2px solid;
+            padding: 20px;
+            background-color: lightslategray;
+        }
+        button {
+            padding: 5px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <label for="">EUROS:</label>
+        <input id="numero1" type="number">
+        <br>
+        <label for="">DÓLARES:</label>
+        <input id="numero2" type="number">
+        <br>
+        <label for="">DÓLAR CANADIENCE:</label>
+        <input id="numero3" type="number">
+        <br>
+        <button onclick="conversion()" id="btnSumar">Convertir a Dólares</button>
+    </div>
+    
+    
+
+    <script>
+
+        // UTILIZANDO ASYNC AWAIT
+        async function converMonedas() {
+            const url = `https://cdn.dinero.today/api/latest.json`;
+
+            const respuesta = await fetch(url);
+
+            //si la respuesta no fue exitosa
+            if (!respuesta.ok)
+                throw new Error("Error. No se pudo hacer la conversión")
+
+            const json = await respuesta.json();
+            // retornar el link de la imagen del pokemon
+            console.log(json.rates.EUR)
+            return json.rates.EUR;
+        }
+
+        async function conversion() {
+            try {
+                let euroValor = document.getElementById('numero1').value;
+                let euro = await converMonedas();
+                let dolar = 1
+
+                resultadoDol = euroValor / euro
+                resultadoCAD
+
+                document.getElementById("numero2").value = Number(resultadoDol.toFixed(2));
+                document.getElementById("numero3").value = Number(resultado.toFixed(2));
+
+            } catch (error) {
+                console.error(error.message);
+            }
+            }
+        
+
+    </script>
+</body>
+</html>
