@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id=""lista-dinamica></ul>
+
+    <template>
+        <li class="list">
+            <b>Nombre:</b> <span class="text-danger">infoitems...</span>
+        </li>
+    </template>
+
+    <script>
+        function agregarItems(){
+            const lista = document.getElementById("lista-dinamica");
+            const items = ["item 1", "item 2", "item 3"];
+
+            const frag = document.createDocumentFragment();
+            const tmpl = document.querySelector("template").content;
+
+            intems.forEach(item => {
+                tmpl.querySelector("span").textContent = tmpl;
+
+                const clone = tmpl.cloneNode(true);
+                frag.appendChild(clone);
+            });
+            lista.appendChild(frag);
+        }
+    </script>
+</body>
+</html>
