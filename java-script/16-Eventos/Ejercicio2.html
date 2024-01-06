@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Contador</h1>
+
+    <button id="Boton1">Aumentar</button>
+    <button id="Boton2">Disminuir</button>
+    <script>
+
+        let contador = 0;
+
+        function sumar() 
+        {
+            contador++;
+            console.log(contador)
+        }
+        function restar() 
+        {
+            contador--;
+            console.log(contador)
+        }
+        let click1 = document.getElementById("Boton1");
+        click1.setAttribute("onmouseover", "sumar()");
+
+        let click2 = document.getElementById("Boton2");
+        click2.setAttribute("onmouseover", "restar()");
+    </script>
+</body>
+
+</html>
